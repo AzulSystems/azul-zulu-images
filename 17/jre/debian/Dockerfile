@@ -1,4 +1,4 @@
-FROM debian:13.1
+FROM debian:13.2
 ARG REPO_HOST=repos.azul.com
 
 ENV LANG='en_US.UTF-8'

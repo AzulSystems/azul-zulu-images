@@ -1,4 +1,4 @@
-FROM alpine:3.22
+FROM alpine:3.23
 ARG REPO_HOST=repos.azul.com
 ENV LANG=en_US.UTF-8
 RUN set -e && \
