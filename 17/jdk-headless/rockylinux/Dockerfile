@@ -13,7 +13,7 @@ RUN set -e && \
     'protect=1' \
   > /etc/yum.repos.d/zulu-openjdk.repo
 RUN yum -y update && \
-yum -q -y install zulu17-jdk-headless-17.0.17-1 && \
+yum -q -y install fontconfig zulu17-jdk-headless-17.0.17-1 && \
 yum clean all && \
 rm -rf /var/cache/yum && \
 rm -f /etc/yum.repos.d/zulu-openjdk.repo

@@ -13,7 +13,7 @@ RUN set -e && \
     'protect=1' \
   > /etc/yum.repos.d/zulu-openjdk.repo
 RUN yum -y update && \
-yum -q -y install zulu8-jre-headless-8.0.472-1 && \
+yum -q -y install fontconfig zulu8-jre-headless-8.0.472-1 && \
 yum clean all && \
 rm -rf /var/cache/yum && \
 rm -f /etc/yum.repos.d/zulu-openjdk.repo
