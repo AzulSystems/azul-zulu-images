@@ -1,4 +1,5 @@
 FROM debian:13-slim
+ARG REPO_HOST=repos.azul.com
 
 ENV LANG='C.UTF-8'
 RUN set -eux && \
@@ -10,7 +11,7 @@ RUN set -eux && \
     gpg --batch --export --armor '27BC 0C8C B3D8 1623 F59B  DADC B199 8361 219B D9C9' > /usr/share/keyrings/azul.pgp.asc && \
     gpgconf --kill all && \
     rm -rf "$GNUPGHOME" && \
-    echo 'deb [signed-by=/usr/share/keyrings/azul.pgp.asc] https://repos.azul.com/zulu/deb stable main' | tee /etc/apt/sources.list.d/zulu.list && \
+    echo "deb [signed-by=/usr/share/keyrings/azul.pgp.asc] https://$REPO_HOST/zulu/deb stable main" | tee /etc/apt/sources.list.d/zulu.list && \
     printf 'Package: zulu8-*\nPin: version 8.0.482-3\nPin-Priority: 1001\n' > /etc/apt/preferences && \
     apt-get update && \
     apt-get -y --no-install-recommends install zulu8-jdk && \
