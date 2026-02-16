@@ -20,4 +20,4 @@ RUN set -eux && \
     java -version
     
 ENV JAVA_HOME=/usr/lib/jvm/zulu8
-CMD ["jshell"]
+
