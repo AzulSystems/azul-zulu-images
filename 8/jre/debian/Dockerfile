@@ -12,7 +12,7 @@ RUN set -eux && \
     gpgconf --kill all && \
     rm -rf "$GNUPGHOME" && \
     echo "deb [signed-by=/usr/share/keyrings/azul.pgp.asc] https://$REPO_HOST/zulu/deb stable main" | tee /etc/apt/sources.list.d/zulu.list && \
-    printf 'Package: zulu8-*\nPin: version 8.0.482-3\nPin-Priority: 1001\n' > /etc/apt/preferences && \
+    printf 'Package: zulu8-*\nPin: version 8.0.492-3\nPin-Priority: 1001\n' > /etc/apt/preferences && \
     apt-get update && \
     apt-get -y --no-install-recommends install zulu8-jre && \
     apt-get -y purge --auto-remove gnupg curl && \

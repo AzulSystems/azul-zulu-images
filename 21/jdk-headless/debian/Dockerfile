@@ -12,7 +12,7 @@ RUN set -eux && \
     gpgconf --kill all && \
     rm -rf "$GNUPGHOME" && \
     echo "deb [signed-by=/usr/share/keyrings/azul.pgp.asc] https://$REPO_HOST/zulu/deb stable main" | tee /etc/apt/sources.list.d/zulu.list && \
-    printf 'Package: zulu21-*\nPin: version 21.0.10-3\nPin-Priority: 1001\n' > /etc/apt/preferences && \
+    printf 'Package: zulu21-*\nPin: version 21.0.11-3\nPin-Priority: 1001\n' > /etc/apt/preferences && \
     apt-get update && \
     apt-get -y --no-install-recommends install zulu21-jdk-headless && \
     apt-get -y purge --auto-remove gnupg curl && \
