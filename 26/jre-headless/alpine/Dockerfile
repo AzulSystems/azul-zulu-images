@@ -5,9 +5,9 @@ RUN set -eux && \
     wget -P /etc/apk/keys/ https://cdn.azul.com/public_keys/alpine-signing@azul.com-5d5dc44c.rsa.pub && \
     echo "https://$REPO_HOST/zulu/alpine" | tee -a /etc/apk/repositories && \
     apk update && \
-    apk add --no-cache zulu11-jre=11.0.31-r3 && \
+    apk add --no-cache zulu26-jre-headless=26.0.1-r1 && \
     java -version
 
-ENV JAVA_HOME=/usr/lib/jvm/zulu11
+ENV JAVA_HOME=/usr/lib/jvm/zulu26
 ENV PATH=$JAVA_HOME/bin:$PATH
 
