@@ -6,11 +6,8 @@ RUN  set -eux; \
      curl -fsSL https://repos.azul.com/azul-repo.key -o /tmp/azul-repo.key; \
      GNUPGHOME="$(mktemp -d)"; export GNUPGHOME; \
      gpg --batch --import /tmp/azul-repo.key; \
-     gpg --batch --list-keys --fingerprint --with-colons \
-       | awk -F: '$1 == "fpr" { print $10 }' \
-       | grep -Fxq '27BC0C8CB3D81623F59BDADCB1998361219BD9C9'; \
+     gpg --batch --export --armor '27BC0C8CB3D81623F59BDADCB1998361219BD9C9' > /etc/pki/rpm-gpg/RPM-GPG-KEY-azul; \
      gpgconf --kill all; rm -rf "$GNUPGHOME"; \
-     rpm --import /tmp/azul-repo.key; \
      rm /tmp/azul-repo.key; \
      printf '%s\n' \
        '[zulu-openjdk]' \
@@ -20,7 +17,6 @@ RUN  set -eux; \
        'gpgcheck=1' \
        'gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-azul' \
        > /etc/yum.repos.d/zulu-openjdk.repo; \
-     curl -fsSL https://repos.azul.com/azul-repo.key -o /etc/pki/rpm-gpg/RPM-GPG-KEY-azul; \
      dnf install -y --setopt=install_weak_deps=False fontconfig \
        zulu21-jre-headless-21.0.11-3; \
      dnf remove -y gnupg2; \
