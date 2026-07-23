@@ -18,7 +18,7 @@ RUN  set -eux; \
        'gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-azul' \
        > /etc/yum.repos.d/zulu-openjdk.repo; \
      dnf install -y --setopt=install_weak_deps=False fontconfig \
-       zulu8-jdk-headless-8.0.492-3; \
+       zulu8-jdk-headless-8.0.502-1; \
      dnf remove -y gnupg2; \
      dnf clean all; rm -rf /var/cache/dnf; \
      java -version

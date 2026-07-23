@@ -6,7 +6,7 @@ RUN set -eux; \
      echo "6c6393d4755818a15cf055a5216cffa599f038cd508433faed2226925956509a  /tmp/azul-signing.pub" | sha256sum -c -; \
      mv /tmp/azul-signing.pub /etc/apk/keys/alpine-signing@azul.com-5d5dc44c.rsa.pub; \
      echo "https://$REPO_HOST/zulu/alpine" | tee -a /etc/apk/repositories; \
-     apk add --no-cache zulu25-jdk=25.0.3-r3; \
+     apk add --no-cache zulu25-jdk=25.0.4-r1; \
      java -version
 
 ENV JAVA_HOME=/usr/lib/jvm/zulu25
